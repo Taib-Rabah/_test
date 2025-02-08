@@ -13,6 +13,8 @@ jobs:
   format:
     name: Format Code
 
+    if: ${{ ! contains(github.event.head_commit.message, '[no format]') }}
+
     uses: trdev20-actions/workflows/.github/workflows/format.yml@v1
 
     with:
