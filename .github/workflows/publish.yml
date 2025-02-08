@@ -1,0 +1,24 @@
+name: Publish Package
+run-name: Publish Package
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  publish:
+    name: Publish Package
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: CSI
+        uses: trdev20-actions/csi@v1.1.0
+
+      - name: Publish
+        uses: changesets/action@v1
+        with:
+          publish: pnpm publish

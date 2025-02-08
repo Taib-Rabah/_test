@@ -1,0 +1,1 @@
+- [ ] Add a script that checks if all files within a group (e.g. `web`) are exported from their `index.ts` file.

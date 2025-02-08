@@ -1,0 +1,55 @@
+{
+  "name": "abc-test-ok-nice",
+  "version": "0.1.0",
+  "description": "Collection of JS utilities",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "package.json",
+    "README.md",
+    "LICENSE.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "script": "tsx .dev/scripts/wrapper.ts",
+    "build": "pnpm script build && tsup",
+    "dev": "pnpm script dev && tsup --watch",
+    "format": "prettier --write .",
+    "ci:format": "prettier --write .  --prettier-ignore-path .ci.prettierignore",
+    "ci:check-format": "prettier --check . --prettier-ignore-path .ci.prettierignore",
+    "publish": "pnpm build && pnpm changeset publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trdev20/js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Taib Rabah",
+  "license": "MIT",
+  "keywords": [
+    "js",
+    "ts",
+    "javascript",
+    "typescript",
+    "utils",
+    "utilities",
+    "helper"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^2.27.12",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.13.0",
+    "fs-extra": "^11.3.0",
+    "jsonc-parser": "^3.3.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

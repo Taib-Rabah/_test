@@ -1,0 +1,21 @@
+name: Format Code
+run-name: Format Code
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  format:
+    name: Format Code
+
+    uses: trdev20-actions/workflows/.github/workflows/format.yml@v1
+
+    with:
+      app-id: ${{ vars.APP_ID }}
+      format-script: ci:format
+      check-format-script: ci:check-format
+
+    secrets:
+      private-key: ${{ secrets.PRIVATE_KEY }}
