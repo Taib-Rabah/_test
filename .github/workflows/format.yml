@@ -13,9 +13,5 @@ jobs:
     uses: trdev20-actions/workflows/.github/workflows/format.yml@v1
 
     with:
-      app-id: ${{ vars.APP_ID }}
       format-script: ci:format
       check-format-script: ci:check-format
-
-    secrets:
-      private-key: ${{ secrets.PRIVATE_KEY }}

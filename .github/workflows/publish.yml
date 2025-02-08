@@ -12,6 +12,8 @@ jobs:
   publish:
     name: Publish Package
 
+    if: ${{ ! contains(github.event.head_commit.message, '[no publish]') }}
+
     runs-on: ubuntu-latest
 
     steps:
