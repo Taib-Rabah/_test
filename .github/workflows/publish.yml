@@ -20,10 +20,15 @@ jobs:
       - name: CSI
         uses: trdev20-actions/csi@v1.1.0
 
+      - name: Publish Check
+        run: pnpm script publish check-version
+
+      - name: Build
+        run: pnpm build
+        
       - name: Publish
         uses: changesets/action@v1
         with:
-          publish: pnpm publish
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
