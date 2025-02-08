@@ -15,3 +15,5 @@ jobs:
     with:
       format-script: ci:format
       check-format-script: ci:check-format
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
