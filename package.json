@@ -18,9 +18,9 @@
     "build": "pnpm script build && tsup",
     "dev": "pnpm script dev && tsup --watch",
     "format": "prettier --write .",
-    "ci:format": "prettier --write .  --prettier-ignore-path .ci.prettierignore",
-    "ci:check-format": "prettier --check . --prettier-ignore-path .ci.prettierignore",
-    "publish": "pnpm build && pnpm changeset publish"
+    "ci:format": "prettier --write .  --ignore-path .ci.prettierignore",
+    "ci:check-format": "prettier --check . --ignore-path .ci.prettierignore",
+    "publish": "pnpm script publish check-version && pnpm build && pnpm changeset publish"
   },
   "repository": {
     "type": "git",

@@ -1,1 +1,1 @@
-import "./check";
+import "./check-version";
