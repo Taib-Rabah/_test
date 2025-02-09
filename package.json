@@ -20,7 +20,7 @@
     "format": "prettier --write .",
     "ci:format": "prettier --write .  --ignore-path .ci.prettierignore",
     "ci:check-format": "prettier --check . --ignore-path .ci.prettierignore",
-    "publish": "pnpm script publish check-version && pnpm build && pnpm publish --no-git-checks"
+    "publish-pkg": "pnpm script publish check-version && pnpm build && pnpm publish --no-git-checks"
   },
   "repository": {
     "type": "git",
