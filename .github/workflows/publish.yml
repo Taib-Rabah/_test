@@ -24,8 +24,11 @@ jobs:
       - name: CSI
         uses: trdev20-actions/csi@v1.1.0
         
-      - name: Auth
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        
       - name: Publish
-        run: pnpm run publish-pkg
+        uses: changesets/action@v1
+        with:
+          createGithubReleases: true
+          publish: pnpm run publish-pkg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
