@@ -1,5 +1,16 @@
 # abc-test-ok-nice
 
+## 0.2.0
+
+### Minor Changes
+
+- 8039a9d: feat(getSomething): add way to get something
+
+### Patch Changes
+
+- b6b5f66: yo
+- 1faf2c0: fix(it)
+
 ## 0.1.3
 
 ### Patch Changes
