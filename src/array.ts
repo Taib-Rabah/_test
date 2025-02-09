@@ -12,7 +12,10 @@ export const hasOneOf = (array: unknown[], values: unknown[]): boolean =>
 export const hasAllOf = (array: unknown[], values: unknown[]): boolean =>
   values.every((value) => array.includes(value));
 
-export const isStringArray = (value: unknown): value is string[] => isArray(value) && value.every(isString);
+export const isStringArray = (value: unknown): value is string[] =>
+  isArray(value) && value.every(isString);
 
-export const isEnumArray = <T extends string>(value: unknown, enumValues: Readonly<[T, ...T[]]>): value is T[] =>
-  isArray(value) && value.every((item) => enumValues.includes(item as T));
+export const isEnumArray = <T extends string>(
+  value: unknown,
+  enumValues: Readonly<[T, ...T[]]>,
+): value is T[] => isArray(value) && value.every((item) => enumValues.includes(item as T));

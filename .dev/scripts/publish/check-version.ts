@@ -19,8 +19,16 @@ if (oldVersion === newVersion) {
   throw new Error("Can't publish same version");
 }
 
-const [oldMajor, oldMinor, oldPatch] = oldVersion.split(".").map(Number) as [number, number, number];
-const [newMajor, newMinor, newPatch] = newVersion.split(".").map(Number) as [number, number, number];
+const [oldMajor, oldMinor, oldPatch] = oldVersion.split(".").map(Number) as [
+  number,
+  number,
+  number,
+];
+const [newMajor, newMinor, newPatch] = newVersion.split(".").map(Number) as [
+  number,
+  number,
+  number,
+];
 
 if (newMajor < oldMajor) {
   throw new Error("Can't publish major version down");

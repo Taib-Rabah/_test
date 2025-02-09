@@ -9,7 +9,9 @@ export type Keys<Object extends Obj> = Prettify<(keyof Object)[]>;
 
 export type Values<Object extends Obj> = Prettify<Object[keyof Object][]>;
 
-export type Entries<Object extends Obj> = Prettify<[Keys<Object>[number], Values<Object>[number]][]>;
+export type Entries<Object extends Obj> = Prettify<
+  [Keys<Object>[number], Values<Object>[number]][]
+>;
 
 export type DeepKeyOf<Object extends Obj, _DeepKey extends string = ""> = {
   [Key in keyof Object]: Object[Key] extends infer InferredKey
@@ -42,9 +44,16 @@ export type DeepParentKeyOf<Object extends Obj, _DeepKey extends string = ""> = 
 }[keyof Object];
 
 export type GetDeep<Object extends Obj, DeepKey extends StrChoices<DeepKeyOf<Object>>> =
-  Split<DeepKey, "."> extends infer Path ? (Path extends Arr ? GetDeepByPath<Object, Path> : never) : never;
+  Split<DeepKey, "."> extends infer Path
+    ? Path extends Arr
+      ? GetDeepByPath<Object, Path>
+      : never
+    : never;
 
-export type GetDeepByPath<Object extends Obj, Path extends Arr> = Path extends [infer First, ...infer Rest]
+export type GetDeepByPath<Object extends Obj, Path extends Arr> = Path extends [
+  infer First,
+  ...infer Rest,
+]
   ? First extends keyof Object
     ? Object[First] extends infer InferredKey
       ? InferredKey extends Obj

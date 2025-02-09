@@ -12,7 +12,9 @@ export const isEmpty: {
   if (isString(value)) return isEmptyString(value);
   if (isArray(value)) return isEmptyArray(value);
   if (isObject(value)) return isEmptyObject(value);
-  throw new Error(`Invalid value type. Expected string, array, or object. Received: ${typeof value}`);
+  throw new Error(
+    `Invalid value type. Expected string, array, or object. Received: ${typeof value}`,
+  );
 };
 
 export const isTruthy = (value: unknown): boolean => isTrue(Boolean(value));

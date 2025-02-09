@@ -3,9 +3,11 @@ import { isUndefined } from "./other";
 import type { Choices, Obj } from "./types/common";
 import type { DeepKeyOf, Entries, GetDeep, Keys, Values } from "./types/object";
 
-export const isObject = (value: unknown): value is Obj => value != null && value.constructor.name === "Object";
+export const isObject = (value: unknown): value is Obj =>
+  value != null && value.constructor.name === "Object";
 
-export const isEmptyObject = (value: object): boolean => isObject(value) && isZero(Object.keys(value).length);
+export const isEmptyObject = (value: object): boolean =>
+  isObject(value) && isZero(Object.keys(value).length);
 
 export const keys = <Object extends Obj>(object: Object): Keys<Object> => Object.keys(object);
 
@@ -15,7 +17,11 @@ export const values = <Object extends Obj>(object: Object): Values<Object> =>
 export const entries = <Object extends Obj>(object: Object): Entries<Object> =>
   Object.entries(object) as Entries<Object>;
 
-export const ensureParentObj = (object: Obj, path: string[], overrideNonObjectKeys: boolean = false) => {
+export const ensureParentObj = (
+  object: Obj,
+  path: string[],
+  overrideNonObjectKeys: boolean = false,
+) => {
   for (let i = 0; i < path.length; i++) {
     const key = path[i]!;
     if (isUndefined(object[key])) {
@@ -44,7 +50,10 @@ export const getDeep = <Object extends Obj, DeepKey extends DeepKeyOf<Object>>(
   deepKey: DeepKey,
 ): GetDeep<Object, DeepKey> => {
   const path = deepKey.split(".");
-  return path.reduce((_obj, currKey) => (isObject(_obj) ? _obj[currKey] : null), obj as unknown) as any;
+  return path.reduce(
+    (_obj, currKey) => (isObject(_obj) ? _obj[currKey] : null),
+    obj as unknown,
+  ) as any;
 };
 
 export const setDeep = <
