@@ -3,6 +3,7 @@ run-name: Publish Package
 
 permissions:
   contents: write
+  pull-requests: write
 
 on:
   push:
