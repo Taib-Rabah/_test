@@ -27,7 +27,6 @@ jobs:
       - name: Publish
         uses: changesets/action@v1
         with:
-          createGithubReleases: true
           publish: pnpm run publish-pkg
           
         env:
