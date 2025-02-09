@@ -24,7 +24,8 @@ jobs:
       - name: CSI
         uses: trdev20-actions/csi@v1.1.0
         
+      - name: Auth
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        
       - name: Publish
         run: pnpm run publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
